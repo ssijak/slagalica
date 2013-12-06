@@ -1,9 +1,7 @@
-from os.path import abspath
+import os
 
-from sys import path
-path.append(abspath('.'))
+from flask import Flask, render_template
 
-from flask import Flask
 try:
     from simplejson import dumps
 except:
@@ -11,7 +9,9 @@ except:
 
 import flask_canvas
 
-app = Flask('canvas_example')
+tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
+
+app = Flask('canvas_example', template_folder=tmpl_dir)
 app.config.update({
     'DEBUG': True,
     'CANVAS_CLIENT_ID': '709161332427214',
@@ -28,9 +28,8 @@ def home():
 
 @app.canvas_route('/canvas/', methods=['POST'])
 def canvas(canvas_user):
-    return '<p>%s</p><p>%s</p>' % (
-        dumps(canvas_user),
-        dumps(canvas_user.request('/me')))
+    user = canvas_user.request('/me')
+    return render_template('index.html', user=user)
 
 @app.route('/error', methods=['GET'])
 def error():
