@@ -1,0 +1,6 @@
+flask>=10.0
+flask-sqlalchemy
+flask-canvas
+flask-oauth
+sqlalchemy
+simplejson
