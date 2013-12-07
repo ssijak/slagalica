@@ -2,5 +2,6 @@ flask>=10.0
 flask-sqlalchemy
 flask-canvas
 flask-oauth
+flask-social
 sqlalchemy
 simplejson
