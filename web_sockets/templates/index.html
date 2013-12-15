@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript">
+var ws = null;
+function sendMessage(){
+{#    event.preventDefault();#}
+    if ("WebSocket" in window){
+        if (ws==null){
+            ws = new WebSocket("ws://localhost:9000/ws")
+            ws.onopen = function(){
+                document.getElementById("messages").value += "Started web socket...";
+                ws.send(document.getElementById("message").value)
+                document.getElementById("messages").value += "\nSent: "+document.getElementById("message").value;
+            };
+            ws.onmessage = function(evt){
+                var received_msg = evt.data;
+                document.getElementById("messages").value += "\nReceived: "+received_msg;
+                document.getElementById("message").value="";
+            };
+            ws.onclose = function(){
+                document.getElementById("messages").value += "\nClosed web socket connection..";
+            };
+        }else{
+            ws.send(document.getElementById("message").value);
+            document.getElementById("messages").value += "\nSent: "+document.getElementById("message").value;
+        }
+
+    }
+
+}
+</script>
+</head>
+<body>
+<div id="sse">
+    <input type="text" id="message" style="width:300px">
+    <input type="button" id="send_button" onclick="sendMessage()" value="Send" style="width:95px"><br>
+    <textarea id="messages" style="width:400px;height:300px;resize:none"></textarea>
+{#   <a href="javascript:WebSocketTest()">Run WebSocket</a>#}
+</div>
+</body>
+</html>
