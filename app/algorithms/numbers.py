@@ -1,16 +1,16 @@
 import __future__
-from operator import add, sub, mul, div
+from operator import add, sub, mul, truediv
 import itertools
 import random
 
 __author__ = 'ssijak@gmail.com'
 
 ops = ['+', '-', '/', '*']
-ops_map = {'+': add, '-': sub, '/': div, '*': mul}
+ops_map = {'+': add, '-': sub, '/': truediv, '*': mul}
 
 
 def generate_numbers():
-    numbers = [random.randint(1, 9) for _ in xrange(4)]  # small numbers
+    numbers = [random.randint(1, 9) for _ in range(4)]  # small numbers
     numbers.append(random.choice([10, 15, 25]))  # middle numbers
     numbers.append(random.choice([50, 75, 100]))  # largest number
     target = random.randint(1, 999)  # requested solution
@@ -41,7 +41,7 @@ def solve(numbers, target):
                 for l, l_str in iter_combinations(left):
                     for r, r_str in iter_combinations(right):
                         for op in ops:
-                            if ops_map[op] is div and r == 0:  # cant divide by zero
+                            if ops_map[op] is truediv and r == 0:  # cant divide by zero
                                 continue
                             else:
                                 yield ops_map[op](float(l), r), \
@@ -95,6 +95,6 @@ def solve(numbers, target):
 
     return remove_parentheses(str(best_item)), best_value
 
-test = generate_numbers()
-print "Zadati brojevi su {}, a trazeni broj je {}".format(test[0], test[1])
-print "Najbolje resenje je {}, a razdaljina od trazenog broja je {}".format(*solve(*test))
+#test = generate_numbers()
+#print("Zadati brojevi su {}, a trazeni broj je {}".format(test[0], test[1]))
+#print("Najbolje resenje je {}, a razdaljina od trazenog broja je {}".format(*solve(*test)))
