@@ -1,0 +1,121 @@
+$main-text-color: #ffffff;
+$sub-text-color: #000000;
+
+@function pxtorem($px){
+  @return #{$px/16px}em
+}
+
+body{
+  font-size: 0.8em;
+  line-height: 0.9em;
+  color: $main-text-color;
+  font-family: 'Open Sans', sans-serif;
+  background: #007090;
+}
+
+.content{
+  width: 800px;
+  margin: 0 auto;
+  min-height: 600px;
+  background: #990000;
+}
+
+header{
+  font-size:1.2em;
+  line-height: 1.3em;
+}
+
+nav {
+  padding: 0.5em;
+  ul > li{
+    font-size: 0.8em;
+    display: inline-block;
+    list-style-type: none;
+    padding-right: 1em;
+    vertical-align: middle;
+    text-transform: uppercase;
+  }
+}
+
+.top-info{
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.tokens{
+  margin-top: 1rem;
+  width: 11rem;
+  background: #009999;
+  display:inline-block;
+
+  .silver{
+    font-size: 0.8em;
+    padding-left:1.2em;
+    display: inline-block;
+    width: 4rem;
+    vertical-align: top;
+    span{
+      padding-left:0.5em;
+      vertical-align: top;
+      color:$sub-text-color;
+    }
+  }
+  .buy{
+    display: inline-block;
+    width: 5.7rem;
+    text-align: right;
+    padding-right: 0.1rem;
+  }
+  .gold{
+    width: 11rem - pxtorem(2px);
+    vertical-align: top;
+    font-size: 1.2em;
+
+    border: 1px solid $sub-text-color;
+    span{
+      vertical-align: top;
+      float:right;
+      padding-right:0.5em;
+    }
+  }
+}
+
+.score{
+  display:inline-block;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  width:23rem;
+  background: #990;
+  margin-top: 0.5rem;
+  .points{
+    display: inline-block;
+    font-size: 2em;
+    margin-top:0.5rem;
+
+  }
+}
+
+.sound{
+  float:right;
+  height:32px;
+  width:32px;
+  display: inline-block;
+  margin-right: 0.5em;
+  background: url("http://placehold.it/32x32");
+}
+
+.music{
+  float:right;
+  height:32px;
+  width:32px;
+  display: inline-block;
+  background: url("http://placehold.it/32x32");
+}
+
+.game{
+  width: 100%;
+  min-height: 600px;
+  background: url("http://placehold.it/800x600");
+}

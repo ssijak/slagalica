@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Slagalica</title>
+    <link href="{{ url_for('static', filename='slagalica.css') }}" rel="stylesheet">
+</head>
+<body>
+    <section class="content">
+        <header>
+            <img src="http://placehold.it/300x100">
+            <section class="top-info">
+                <section class="tokens">
+                    <div class="silver" style="line-height: 18px; height:18px">
+                        <img src="http://placehold.it/18x18">
+                        <span id="silver-tokens">0</span>
+                    </div>
+                    <div class="buy">Kupi tokene</div>
+                    <div class="gold" style="line-height: 32px; height:32px">
+                        <img src="http://placehold.it/32x32">
+                        <span id="gold-tokens">111</span>
+                    </div>
+                </section>
+                <section class="score">
+                    <div class="points">
+                        <span id="user-points">111/120</span>
+                    </div>
+                    <div class="music"></div>
+                    <div class="sound"></div>
+
+                </section>
+            </section>
+            <nav>
+                <ul>
+                    <li>
+                        inventar
+                    </li>
+                    <li>
+                        podeli tokene
+                    </li>
+                    <li>
+                        dostignuca
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <section class="game">
+            <canvas id="game-canvas">
+
+            </canvas>
+        </section>
+    </section>
+
+</body>
+</html>
